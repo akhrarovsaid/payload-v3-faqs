@@ -6,6 +6,8 @@ It would be nice if the docs could include a `FAQ's` section somewhere for the m
 
 In the meantime, I've compiled a list of the most common user issues I've encountered from over 130 pages of Discord discussions and threads for all to browse. I hope it helps users, contributors, and devs alike in getting to answers quickly. The intention here is for this to be a resource one can easily share a link to for a user in need.
 
+I've intentionally omitted questions about [Custom Components](https://payloadcms.com/docs/admin/components) from this list as those are typically so specific that it's hard to generalize to everyone, and the docs do a pretty good job here anyway.
+
 If there are common questions you've noticed are missing, feel free to add them below or send me a DM on Discord and I'll add it here. The following list of Q & A's will appear in no particular order.
 
 ---
