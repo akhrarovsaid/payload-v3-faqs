@@ -34,7 +34,7 @@ This error indicates that you have an incompatible `react` and/or `react-dom` ve
 <details>
 <summary>Answer</summary>
 
-This most common cause of this issue is because you have a root `layout.tsx` that wraps around your `(payload)` folder. There already exists a `layout.tsx` inside the (payload) folder. This causes
+The most common cause of this issue is because you have a root `layout.tsx` that wraps around your `(payload)` folder. There already exists a `layout.tsx` inside the (payload) folder. This causes Payload to inherit a layout where there are `html` and `body` tags nested within eachother which is an invalid `html` structure. To fix this, ensure you don't have a root layout wrapping the `(payload)` folder. Have a look at how the [website template](https://github.com/payloadcms/payload/tree/main/templates/website/src/app) handles this.
 </details>
 
 ---
