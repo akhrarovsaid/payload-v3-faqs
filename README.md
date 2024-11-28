@@ -1,3 +1,15 @@
+<!--
+Use the below Q/A template to help.
+
+---
+
+###
+<details>
+<summary>Answer</summary>
+
+</details>
+-->
+
 # FAQ's and Troubleshooting V3
 
 Hey Payload,
@@ -6,9 +18,44 @@ It would be nice if the docs could include a `FAQ's` section somewhere for the m
 
 In the meantime, I've compiled a list of the most common user issues I've encountered from over 130 pages of Discord discussions and threads for all to browse. I hope it helps users, contributors, and devs alike in getting to answers quickly. The intention here is for this to be a resource one can easily share a link to for a user in need.
 
-I've intentionally omitted questions about [Custom Components](https://payloadcms.com/docs/admin/components) from this list as those are typically so specific that it's hard to generalize to everyone, and the docs do a pretty good job here anyway.
+I've intentionally omitted questions about [Custom Components](https://payloadcms.com/docs/admin/components) from this list as those are typically so specific that it's hard to generalize to everyone, and [the docs](https://payloadcms.com/docs/getting-started/what-is-payload) do a pretty good job here anyway.
 
 If there are common questions you've noticed are missing, feel free to add them below or send me a DM on Discord and I'll add it here. The following list of Q & A's will appear in no particular order.
+
+---
+
+### Why is the Local API saying it can't find one of my collections / behaving unexpectedly in hooks?
+<details>
+<summary>Answer</summary>
+
+The most commong issue for this is missing a `req` before referencing `payload`. Instead of `payload.find(...)`, it should be `req.payload.find`. This is only true if you are not destructuring `payload` out of the `req` beforehand.
+
+Bad:
+```ts
+const beforeChangeHook: CollectionBeforeChangeHook = async ({
+  data,
+  req
+}) => {
+  const findResult = await payload.find({...})
+  // ...
+  return data
+}
+```
+
+Good:
+```ts
+const beforeChangeHook: CollectionBeforeChangeHook = async ({
+  data,
+  req
+}) => {
+  const findResult = await req.payload.find({...}) // Notice the req
+  // ...
+  return data
+}
+```
+
+If you're still experiencing issues with the Payload Local API, then [see here](https://github.com/akhrarovsaid/payload-v3-faqs?tab=readme-ov-file#im-using-the-local-api-with-db-postgres-to-perform-an-update-to-a-document-why-does-the-operation-hang-or-never-execute) for another potential fix.
+</details>
 
 ---
 
