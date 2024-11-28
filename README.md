@@ -17,12 +17,16 @@ If there are common questions you've noticed are missing, feel free to add them 
 This error indicates that some or all of your Payload packages aren't on the same version. To fix this, ensure all of your packages match your Payload version in `package.json`, delete `node_modules` along with your `package-lock.json` (or `pnpm-lock.yaml`, or `yarn.lock`), and reinstall your dependencies.
 </details>
 
+---
+
 ### Why am I getting `"[ Server ] Error: Dependency react is on version 18.3.1, but >=19.0.0-rc-65a56d0e-20241020 or greater is required. Please update this dependency."`
 <details>
 <summary>Answer</summary>
 
 This error indicates that you have an incompatible `react` and/or `react-dom` version installed. Payload V3 requires React and React-dom to be on version 19, as well as Nextjs on version 15 or greater. See recommended versions to pin to your `package.json` [here](https://github.com/payloadcms/payload/blob/main/templates/website/package.json#L47-L48).
 </details>
+
+---
 
 ### Why am I getting `"In HTML, <html> cannot be a child of <body>. This will cause a hydration error."`
 <details>
@@ -31,12 +35,16 @@ This error indicates that you have an incompatible `react` and/or `react-dom` ve
 This most common cause of this issue is because you have a root `layout.tsx` that wraps around your `(payload)` folder. There already exists a `layout.tsx` inside the (payload) folder. This causes
 </details>
 
+---
+
 ### How can I use Payload v3 with `<my-favourite-framework>`
 <details>
 <summary>Answer</summary>
 
 If you're using `NextJS` v15 then Payload can install directly into your application. For all other frameworks, you can run Payload in headless mode, you can have two projects - one for your application, and one for Payload to run in.
 </details>
+
+---
 
 ### Can I use the Payload Local API in my frontend?
 <details>
@@ -45,12 +53,16 @@ If you're using `NextJS` v15 then Payload can install directly into your applica
 It depends. If you're running Payload inside your NextJS application, then you can use the Local API anywhere as long as it remains on the server. If you're using Payload outside of NextJS, then please [refer to the docs here](https://payloadcms.com/docs/local-api/outside-nextjs).
 </details>
 
+---
+
 ### I added Versions & Drafts to my collection config and now all of my documents are missing!
 <details>
 <summary>Answer</summary>
 
 This happens because when you enable versions, they are stored differently in the database from ordinary collections. Your documents need to be populated into the `_your-collection_versions` table to work properly. See [a helpful response from Dan about this here](https://payloadcms.com/community-help/discord/i-dont-see-my-previous-collections-after-adding-in-versions).
 </details>
+
+---
 
 ### Why is Payload loading my changes so slowly in `dev` mode?
 <details>
@@ -59,6 +71,8 @@ This happens because when you enable versions, they are stored differently in th
 There are many possible reasons for this. Payload, itself, is quite heavily optimized and receives updates to improve performance frequently. The most common factor for this is using a remote database while developing. This can add unnecessary overhead as schema changes must be pushed and pulled to somewhere remote. Consider developing with a database located on your local machine.
 </details>
 
+---
+
 ### Why am I getting "Javascript heap out of memory" when trying to build my Payload app?
 <details>
 <summary>Answer</summary>
@@ -66,11 +80,15 @@ There are many possible reasons for this. Payload, itself, is quite heavily opti
 There are many possible reasons for this. This could be the result of poorly optimized application code, uncontained recursive logic, or that the build machine simply does not have enough RAM to build the application. To fix this, ensure your logic and code work as expected. If this is caused by insufficient RAM, consider adding a swapfile or increasing the RAM size of the instance.
 </details>
 
+---
+
 ### When I deploy to Payload Cloud, my build gets stuck on...
 <details>
 <summary>Answer</summary>
 
 </details>
+
+---
 
 ### When I make a change to one of my Collection docs/Globals, those changes are not reflected in my frontend. How come?
 <details>
@@ -78,6 +96,8 @@ There are many possible reasons for this. This could be the result of poorly opt
 
 In order for the frontend to update when changes to documents occur, there needs to be some kind of logic present which revalidates the necessary resource. This is commonly handled via an `afterChange` hook. See how the template handles this [for globals](https://github.com/payloadcms/payload/tree/main/templates/website/src/Header), and [for pages](https://github.com/payloadcms/payload/tree/main/templates/website/src/collections/Pages). [Learn more](https://payloadcms.com/docs/hooks/collections#afterchange) about the `afterChange` hook.
 </details>
+
+---
 
 ### I've updated my Payload package from beta.* to v3 stable. Now I'm getting `<some-error>` errors, how can I resolve these?
 <details>
@@ -88,12 +108,16 @@ The most common cause of errors when migrating from v3 beta to v3 stable is by m
 Credit to @linobino1 for the excellent breaking changes utility site!
 </details>
 
+---
+
 ### How do I migrate from Payload v2.x to v3.x?
 <details>
 <summary>Answer</summary>
 
 See the [comprehensive migration guide here](https://github.com/payloadcms/payload/blob/main/docs/migration-guide/overview.mdx).
 </details>
+
+---
 
 ### How do I use `<some-component-name>` from the `@payloadcms/ui` package?
 <details>
@@ -102,12 +126,16 @@ See the [comprehensive migration guide here](https://github.com/payloadcms/paylo
 While we wait for comprehensive documentation and guides for the `ui` package, the best resource to learn about components here remains to be the `ui` package itself, as well as the monorepo `next` package where many of these components are consumed and used with best practices.
 </details>
 
+---
+
 ### I've deployed my Payload app to a Serverless provider, why is the initial load of the site so slow now?
 <details>
 <summary>Answer</summary>
 
 Serverless platforms suffer from cold-starts. This happens when there are no "warm" instances of your function are running, so they must be spun up and can encounter overhead due to having to start from scratch. This is not a Payload issue, but a trade-off when deploying to serverless and something to consider. Read [this article](https://vercel.com/guides/how-can-i-improve-serverless-function-lambda-cold-start-performance-on-vercel) from Vercel to learn more. Some common patterns here are to use your providers native method of keeping your functions warm, running a cron-job to periodically send requests to your functions to keep them warm, or to use a different deployment target altogether (such as a VPS).
 </details>
+
+---
 
 ### How can I get Tailwind to work with the Payload Admin?
 <details>
@@ -116,6 +144,8 @@ Serverless platforms suffer from cold-starts. This happens when there are no "wa
 To get Tailwind and Shad/cn working with the Payload Admin ui, you can simply install Tailwind and include the layers in the `custom.css` file located in the `(payload)` folder. However, make sure not to include the `@layer base;` directive as the preflight styles from this will interfere with the `payload-default` styles that are used to style the admin app.
 </details>
 
+---
+
 ### Why are my relationships and uploads typed with `<Media or Relationship> | <string or number>`?
 <details>
 <summary>Answer</summary>
@@ -123,12 +153,16 @@ To get Tailwind and Shad/cn working with the Payload Admin ui, you can simply in
 This happens because any given collection config may specify deeply nested relationships. Payload has no way to know, in advance, at what depth to fetch those relationships. As a result, to optimize requests, some docs may return relationships that contain only id's. A common fix for this is to use the `depth` property of the API you are using. See [here for Local API](https://payloadcms.com/docs/queries/depth#local-api), here [for REST API](https://payloadcms.com/docs/queries/depth#rest-api). Learn more about depth [here](https://payloadcms.com/docs/queries/depth).
 </details>
 
+---
+
 ### How can I prevent some users from accessing the Payload Admin?
 <details>
 <summary>Answer</summary>
 
 You may use the `admin` access control function of your auth-enabled collection. See [here for more details](https://payloadcms.com/docs/access-control/collections#admin).
 </details>
+
+---
 
 ### I've deployed my Payload app, now I'm getting "You are not allowed to perform this action" errors. How come?
 <details>
@@ -139,6 +173,8 @@ This can happen for numerous reasons. The two most common ones are:
 - Your application is running on a different PORT than expected, commonly when other applications are running on the same port (3000 by default).
 </details>
 
+---
+
 ### Why am I getting `Error: missing secret key. A secret key is needed to secure Payload.`
 <details>
 <summary>Answer</summary>
@@ -146,12 +182,16 @@ This can happen for numerous reasons. The two most common ones are:
 A secret key is required to secure Payload properly. In order to add one, you must add a `PAYLOAD_SECRET` environment variable to your `.env` file. See more about this [in the docs](https://payloadcms.com/docs/production/deployment#the-secret-key).
 </details>
 
+---
+
 ### I have an idea for a feature request, how should I proceed?
 <details>
 <summary>Answer</summary>
 
 The best way to make sure your feature request gets looked at is to create a Github discussion with the "Feature Request" flag on it. These get checked regularly, and allows your request to get feedback from devs and the broader community. See [discussions here](https://github.com/payloadcms/payload/discussions).
 </details>
+
+---
 
 ### I'm using `db-postgres` and now I'm getting an error related to the PostgreSQL 63 character table name limit, what should I do?
 <details>
@@ -164,12 +204,16 @@ Unfortunately this is an optimization limitation enforced by PostgreSQL. Many fi
 - [Select](https://payloadcms.com/docs/fields/select)
 </details>
 
+---
+
 ### I'm using the Local API with `db-postgres` to perform an `update` to a document, why does the operation hang or never execute?
 <details>
 <summary>Answer</summary>
 
 This happens because the Local API may be performing a transaction and, as such, requries a `req` PayloadRequest to be passed in order to execute correctly. [Learn more about transactions](https://payloadcms.com/docs/local-api/overview#transactions). Passing a `req` property is encouraged even if you're not using `db-postgres`.
 </details>
+
+---
 
 ### I'm getting a "Module not found: Can't resolve 'fs'" error, how do I resolve this?
 <details>
@@ -182,6 +226,8 @@ While this could be the result of user-code error, two common reasons this happe
 If the above are not true, then you can try deleting `node_modules` and reinstalling your dependencies.
 </details>
 
+---
+
 ### Help, I've connected to my prod | staging | test db while running a dev environment. Now I'm getting `"It looks like you've run Payload in dev mode, meaning you've dynamically pushed changes to your database.If you'd like to run migrations, data loss will occur. Would you like to proceed?"` How can I revert this?
 <details>
 <summary>Answer</summary>
@@ -191,12 +237,16 @@ This warning is to prevent people from running `dev` mode (which force pushes sc
 To resolve this issue simply connect to your db, using a CLI utility or a GUI such as pgAdmin, and delete rows where `batch` equals -1 in the `payload_migrations` table.
 </details>
 
+---
+
 ### How come my uploaded media work locally but not when deployed?
 <details>
 <summary>Answer</summary>
 
 There could be numerous reasons why uploaded media don't work when deployed. Double check that you have configured your application firewall correctly, and that the rules of the provider you've chosen to serve media does not block requests from your application. You can also check that you're allowing the hostname of your image provider in `next.config.js` via the `remotePatterns` property ([see here](https://nextjs.org/docs/app/api-reference/components/image#remotepatterns)).
 </details>
+
+---
 
 ### I'd like to configure Cloudflare R2 as my storage system - what do I need to do to make it work?
 <details>
