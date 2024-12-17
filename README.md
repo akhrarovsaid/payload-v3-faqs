@@ -24,6 +24,15 @@ If there are common questions you've noticed are missing, feel free to add them 
 
 ---
 
+### How can I group related collections together in the admin ui?
+<details>
+<summary>Answer</summary>
+
+You can group related collections together in the admin ui dashboard and navbar by specifying an `admin.group` property in your collection or global configuration. Learn more [here](https://payloadcms.com/docs/admin/collections#admin-options).
+</details>
+
+---
+
 ### Why is the Local API saying it can't find one of my collections / behaving unexpectedly in hooks?
 <details>
 <summary>Answer</summary>
