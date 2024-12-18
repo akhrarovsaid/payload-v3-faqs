@@ -8,6 +8,14 @@ Use the below Q/A template to help.
 <summary>Answer</summary>
 
 </details>
+
+---
+
+### When I deploy to Payload Cloud, my build gets stuck on...
+<details>
+<summary>Answer</summary>
+
+</details>
 -->
 
 # FAQ's and Troubleshooting V3
@@ -136,14 +144,6 @@ There are many possible reasons for this. Payload, itself, is quite heavily opti
 <summary>Answer</summary>
 
 There are many possible reasons for this. This could be the result of poorly optimized application code, uncontained recursive logic, or that the build machine simply does not have enough RAM to build the application. To fix this, ensure your logic and code work as expected. If this is caused by insufficient RAM, consider adding a swapfile or increasing the RAM size of the instance.
-</details>
-
----
-
-### When I deploy to Payload Cloud, my build gets stuck on...
-<details>
-<summary>Answer</summary>
-
 </details>
 
 ---
