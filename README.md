@@ -125,7 +125,7 @@ It depends. If you're running Payload inside your NextJS application, then you c
 <details>
 <summary>Answer</summary>
 
-This happens because when you enable versions, they are stored differently in the database from ordinary collections. Your documents need to be populated into the `_your-collection_versions` table to work properly. See [a helpful response from Dan about this here](https://payloadcms.com/community-help/discord/i-dont-see-my-previous-collections-after-adding-in-versions).
+This happens because when you enable versions, they are stored differently in the database from ordinary collections. Your documents need to be populated into the `_your-collection_versions` table to work properly. See [a helpful response from Dan about this here](https://github.com/payloadcms/payload/discussions/5353#discussioncomment-8828018) and [this one too](https://payloadcms.com/community-help/discord/i-dont-see-my-previous-collections-after-adding-in-versions).
 </details>
 
 ---
