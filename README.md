@@ -157,6 +157,15 @@ In order for the frontend to update when changes to documents occur, there needs
 
 ---
 
+### How do I change the root `/admin` route?
+<details>
+<summary>Answer</summary>
+
+In order to change the root `/admin` route, you need to add a `routes.admin` property to your Payload config _and_ change the `admin` directory to match as this is where the admin ui lives. See the docs on this [here](https://payloadcms.com/docs/admin/overview#customizing-routes).
+</details>
+
+---
+
 ### I've updated my Payload package from beta.* to v3 stable. Now I'm getting `<some-error>` errors, how can I resolve these?
 <details>
 <summary>Answer</summary>
