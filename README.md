@@ -32,6 +32,15 @@ If there are common questions you've noticed are missing, feel free to add them 
 
 ---
 
+### How come my images work locally but not when deployed to Vercel or other serverless providers?
+<details>
+<summary>Answer</summary>
+
+The most likely cause of this is because you're storing those images in the local filesystem without using a storage-adapter. Serverless systems lack a permanent file system and are typically ephemeral, so Payload ends up looking for images that no longer exist which results in not found errors. The solution is to use a [storage-adapter](https://payloadcms.com/docs/upload/storage-adapters) when deploying to a serverless provider.
+</details>
+
+---
+
 ### How can I group related collections together in the admin ui?
 <details>
 <summary>Answer</summary>
