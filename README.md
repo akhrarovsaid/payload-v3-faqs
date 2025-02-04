@@ -227,6 +227,8 @@ To get Tailwind and Shad/cn working with the Payload Admin ui, you can simply in
 <summary>Answer</summary>
 
 This happens because any given collection config may specify deeply nested relationships. Payload has no way to know, in advance, at what depth to fetch those relationships. As a result, to optimize requests, some docs may return relationships that contain only id's. A common fix for this is to use the `depth` property of the API you are using. See [here for Local API](https://payloadcms.com/docs/queries/depth#local-api), here [for REST API](https://payloadcms.com/docs/queries/depth#rest-api). Learn more about depth [here](https://payloadcms.com/docs/queries/depth).
+
+The other side to this is access controls. Users with insufficient access controls will recieve an `id` only. The reason for this is twofold - to limit what the user can access, and to preserve existing field data that might require knowing at least an id in advance. For example, a relationship field where a user does not have the necessary priviledges to read the related docs themselves, but can still read the relationship field.
 </details>
 
 ---
