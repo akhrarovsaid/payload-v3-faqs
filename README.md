@@ -326,9 +326,9 @@ There could be numerous reasons why uploaded media don't work when deployed. Dou
 
 ---
 
-### I'd like to configure Cloudflare R2 as my storage system - what do I need to do to make it work?
+### I'd like to configure Cloudflare R2 / Supabase Storage as my storage system - what do I need to do to make it work?
 <details>
 <summary>Answer</summary>
 
-Since R2 is compatible with the S3 API, all you need is the S3 storage adapter. See [docs for S3 adapter here](https://payloadcms.com/docs/upload/storage-adapters#s3-storage).
+Since R2 / Supabase Storage is compatible with the S3 API, all you need is the S3 storage adapter. See [docs for S3 adapter here](https://payloadcms.com/docs/upload/storage-adapters#s3-storage).
 </details>
