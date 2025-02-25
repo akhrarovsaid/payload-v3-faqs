@@ -332,3 +332,12 @@ There could be numerous reasons why uploaded media don't work when deployed. Dou
 
 Since R2 / Supabase Storage is compatible with the S3 API, all you need is the S3 storage adapter. See [docs for S3 adapter here](https://payloadcms.com/docs/upload/storage-adapters#s3-storage).
 </details>
+
+---
+
+### Does Payload support Cloudflare D1?
+<details>
+<summary>Answer</summary>
+
+Yes, Cloudflare D1 should work fine with Payload. You need the SQLite DB adapter. See [docs for SQLite adapter here](https://payloadcms.com/docs/database/sqlite).
+</details>
