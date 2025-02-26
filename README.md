@@ -341,3 +341,12 @@ Since R2 / Supabase Storage is compatible with the S3 API, all you need is the S
 
 Yes, Cloudflare D1 should work fine with Payload. You need the SQLite DB adapter. See [docs for SQLite adapter here](https://payloadcms.com/docs/database/sqlite).
 </details>
+
+---
+
+### How can I get Array field data when `useField` only returns a number?
+<details>
+<summary>Answer</summary>
+
+The `useField` hook returns a number representing the number of rows in the array, or in other words, the array length. To get the data in terms of objects, use the `getDataByPath` method of the `useForm` hook and pass it the `path` to your array field. Learn more about [the useForm hook](https://payloadcms.com/docs/admin/react-hooks#useform).
+</details>
