@@ -350,3 +350,12 @@ Yes, Cloudflare D1 should work fine with Payload. You need the SQLite DB adapter
 
 The `useField` hook returns a number representing the number of rows in the array, or in other words, the array length. To get the data in terms of objects, use the `getDataByPath` method of the `useForm` hook and pass it the `path` to your array field. Learn more about [the useForm hook](https://payloadcms.com/docs/admin/react-hooks#useform).
 </details>
+
+---
+
+### Why do I get TS errors when defining custom `validate` functions in config?
+<details>
+<summary>Answer</summary>
+
+Sometimes Typescript isn't clever enough to properly infer the necessary typing for field validate functions. This is especially true for fields that may define a `hasMany` property. One workaround is to explicitly define a `hasMany` property if applicable. You can also try defining the validate function outside of the config as a standalone function and typing it accordingly. Validate function types are exported from the `'payload'` package.
+</details>
