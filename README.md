@@ -339,7 +339,7 @@ Since R2 / Supabase Storage is compatible with the S3 API, all you need is the S
 <details>
 <summary>Answer</summary>
 
-Yes, Cloudflare D1 should work fine with Payload. You need the SQLite DB adapter. See [docs for SQLite adapter here](https://payloadcms.com/docs/database/sqlite).
+Yes and no - the answer is kind of technical. This gist is that yes D1 _can_ work with Payload if you use a worker as a proxy for API operations. You would need to support the SQLite DB adapter. See [docs for SQLite adapter here](https://payloadcms.com/docs/database/sqlite). Generally speaking, D1 does not work outside of workers, so usage with Payload is limited.
 </details>
 
 ---
